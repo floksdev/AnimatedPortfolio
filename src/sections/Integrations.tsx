@@ -1,3 +1,11 @@
+import Tag from "@/components/Tag";
+import figmaIcon from '@/assets/images/figma-logo.svg'
+import notionIcon from '@/assets/images/notion-logo.svg'
+import slackIcon from '@/assets/images/slack-logo.svg'
+import relumeIcon from '@/assets/images/relume-logo.svg'
+import framerIcon from '@/assets/images/framer-logo.svg'
+import githubIcon from '@/assets/images/github-logo.svg'
+
 const integrations = [
     { name: "Figma", icon: "figma-logo.svg", description: "Figma is a collaborative interface design tool." },
     { name: "Notion", icon: "notion-logo.svg", description: "Notion is an all-in-one workspace for notes and docs." },
@@ -8,5 +16,22 @@ const integrations = [
 ];
 
 export default function Integrations() {
-    return <div>Integrations</div>;
+    return (
+        <section>
+            <div className="container">
+                <Tag>Integrations</Tag>
+                <h2>Plays well with <span>others</span></h2>
+                <p>Layers blablabla bla</p>
+                <div>
+                    {integrations.map (integration => (
+                        <div key={integration.name}>
+                            <div></div>
+                            <h3>{integration.name}</h3>
+                            <p>{integration.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }
