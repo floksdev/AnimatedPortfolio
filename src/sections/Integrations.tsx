@@ -23,12 +23,14 @@ export default function Integrations() {
     return (
         <section className="py-24 overflow-hidden">
             <div className="container">
-                <Tag>Integrations</Tag>
-                <h2 className="text-6xl font-medium mt-6">Plays well with <span className="text-lime-400">others</span></h2>
-                <p className="text-white/50 mt-4 text-lg">Layers blablabla bla</p>
-                <div className="h-[400px] mt-8 overflow-hidden grid md:grid-cols-2 gap-4 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
-                    <IntegrationColumn integrations={integrations}/>
-                    <IntegrationColumn integrations={integrations.slice().reverse()} reverse className="hidden md:flex"/>
+                <div className="flex justify-center items-center flex-col">
+                    <Tag>Logiciels Maîtrisés</Tag>
+                    <h2 className="text-6xl font-medium mt-6">Je maîtrise également<br /> plusieurs <span className="text-violet-500">logiciels</span></h2>
+                    <p className="text-white/50 mt-4 text-lg">Layers blablabla bla</p>
+                    <div className="h-[400px] mt-8 overflow-hidden grid md:grid-cols-2 gap-4 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
+                        <IntegrationColumn integrations={integrations}/>
+                        <IntegrationColumn integrations={integrations.slice().reverse()} reverse className="hidden md:flex"/>
+                    </div>
                 </div>
             </div>
         </section>
