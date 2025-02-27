@@ -20,37 +20,16 @@ import Cpp from "@/assets/images/techno/C++.svg";
 import C from "@/assets/images/techno/C.svg";
 import FramerMotion from "@/assets/images/techno/FramerMotion.svg";
 import InfiniteScrollingLogosAnimation from "@/components/InfiniteScrollAnimation";
-
-
-import Image from "next/image";
-import { motion } from "framer-motion";
-
-const logos = [
-    { name: "ExpressJS", image: ExpressJS },
-    { name: "ReactJS", image: ReactJS },
-    { name: "NextJS", image: NextJS },
-    { name: "Javascript", image: Javascript },
-    { name: "Typescript", image: Typescript },
-    { name: "HTML", image: HTML },
-    { name: "CSS", image: CSS },
-    { name: "Tailwind", image: Tailwind },
-    { name: "Go", image: Go },
-    { name: "MongoDB", image: MongoDB },
-    { name: "Bash", image: Bash },
-    { name: "Cmake", image: Cmake },
-    { name: "Bulma", image: Bulma },
-    { name: "MySQL", image: MySQL },
-    { name: "MariaDB", image: MariaDB },
-    { name: "C++", image: Cpp },
-    { name: "C", image: C },
-    { name: "FramerMotion", image: FramerMotion },
-];
+import CountAnimation from "@/components/Counter";
 
 export default function LogoTicker() {
     return (
     <section className="py-24 overflow-x-clip">
         <div className="container">
-            <h3 className="text-center text-white/50 text-xl">18 langages, frameworks et technologies maîtrisés</h3>
+            <div className="flex justify-center items-center gap-2">
+                <CountAnimation number={18} className="text-7xl text-violet-500 font-bold"/>
+                <h3 className="text-center text-white/50 text-xl font-bold">langages, frameworks et<br /> technologies maîtrisés ...</h3>
+            </div>
             <div className="flex overflow-hidden mt-7 [mask-image:linear-gradient(to_right,transparent,black_90%,transparent)]">
                 <InfiniteScrollingLogosAnimation/>
             </div>
