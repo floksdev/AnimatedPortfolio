@@ -27,7 +27,7 @@ export default function Announcement() {
                     <Tag>
                         Annonce
                     </Tag>
-                    <TypewriterEffect words={words} className="text-6xl font-medium text-center" cursorClassName="text-purple-500" />
+                    <TypewriterEffect words={words} className="text-6xl font-medium text-center w-2/3" cursorClassName="text-purple-500" />
                 </div>
             </div>
         </section>
