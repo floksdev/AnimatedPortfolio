@@ -1,43 +1,58 @@
 "use client";
 
 import { Fragment } from "react";
-import quantumLogo from "@/assets/images/quantum.svg";
-import acmeLogo from "@/assets/images/acme-corp.svg";
-import echoValleyLogo from "@/assets/images/echo-valley.svg";
-import pulseLogo from "@/assets/images/pulse.svg";
-import outsideLogo from "@/assets/images/outside.svg";
-import apexLogo from "@/assets/images/apex.svg";
-import celestialLogo from "@/assets/images/celestial.svg";
-import twiceLogo from "@/assets/images/twice.svg";
+import ExpressJS from "@/assets/images/techno/ExpressJS.svg";
+import ReactJS from "@/assets/images/techno/ReactJS.svg";
+import NextJS from "@/assets/images/techno/NextJS.svg";
+import Javascript from "@/assets/images/techno/Javascript.svg";
+import Typescript from "@/assets/images/techno/Typescript.svg";
+import HTML from "@/assets/images/techno/HTML5.svg";
+import CSS from "@/assets/images/techno/CSS3.svg";
+import Tailwind from "@/assets/images/techno/TailwindCSS.svg";
+import Go from "@/assets/images/techno/Go.svg";
+import MongoDB from "@/assets/images/techno/MongoDB.svg";
+import Bash from "@/assets/images/techno/Bash.svg";
+import Cmake from "@/assets/images/techno/Cmake.svg";
+import Bulma from "@/assets/images/techno/Bulma.svg";
+import MySQL from "@/assets/images/techno/MySQL.svg";
+import MariaDB from "@/assets/images/techno/MariaDB.svg";
+import Cpp from "@/assets/images/techno/C++.svg";
+import C from "@/assets/images/techno/C.svg";
+import FramerMotion from "@/assets/images/techno/FramerMotion.svg";
+import InfiniteScrollingLogosAnimation from "@/components/InfiniteScrollAnimation";
+
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 const logos = [
-    { name: "Quantum", image: quantumLogo },
-    { name: "Acme Corp", image: acmeLogo },
-    { name: "Echo Valley", image: echoValleyLogo },
-    { name: "Pulse", image: pulseLogo },
-    { name: "Outside", image: outsideLogo },
-    { name: "Apex", image: apexLogo },
-    { name: "Celestial", image: celestialLogo },
-    { name: "Twice", image: twiceLogo },
+    { name: "ExpressJS", image: ExpressJS },
+    { name: "ReactJS", image: ReactJS },
+    { name: "NextJS", image: NextJS },
+    { name: "Javascript", image: Javascript },
+    { name: "Typescript", image: Typescript },
+    { name: "HTML", image: HTML },
+    { name: "CSS", image: CSS },
+    { name: "Tailwind", image: Tailwind },
+    { name: "Go", image: Go },
+    { name: "MongoDB", image: MongoDB },
+    { name: "Bash", image: Bash },
+    { name: "Cmake", image: Cmake },
+    { name: "Bulma", image: Bulma },
+    { name: "MySQL", image: MySQL },
+    { name: "MariaDB", image: MariaDB },
+    { name: "C++", image: Cpp },
+    { name: "C", image: C },
+    { name: "FramerMotion", image: FramerMotion },
 ];
 
 export default function LogoTicker() {
     return (
     <section className="py-24 overflow-x-clip">
         <div className="container">
-            <h3 className="text-center text-white/50 text-xl">Already chosen by these market leaders</h3>
-            <div className="flex overflow-hidden mt-12 [mask-image:linear-gradient(to_right,transparent,black_90%,transparent)]">
-                <motion.div className="flex flex-none gap-24 pr-24" animate={{x: "-50%"}} transition={{duration: 30, ease: "linear", repeat: Infinity}}>
-                    {Array.from({ length: 2 }).map((_, i) => (
-                        <Fragment key={i}>
-                            {logos.map(logo => (
-                                <Image src={logo.image} key={logo.name} alt={logo.name}/>
-                            ))}
-                        </Fragment>
-                    ))}
-                </motion.div>
+            <h3 className="text-center text-white/50 text-xl">18 langages, frameworks et technologies maîtrisés</h3>
+            <div className="flex overflow-hidden mt-7 [mask-image:linear-gradient(to_right,transparent,black_90%,transparent)]">
+                <InfiniteScrollingLogosAnimation/>
             </div>
         </div>
     </section>
