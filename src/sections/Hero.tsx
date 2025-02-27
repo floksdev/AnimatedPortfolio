@@ -10,7 +10,7 @@ export default function Hero() {
         <section className="py-16">
             <div className="container">
                 <motion.div initial={{opacity: 0, scale: 0}} animate={{opacity: 1, scale: 1}} className="flex items-center justify-center flex-col gap-10">
-                    <Image className="w-25" src={Pic}></Image>
+                    <Image alt="Profil-picture" className="w-25" src={Pic}></Image>
                     <div className="py-1 px-3 bg-gradient-to-r from-violet-500 to-purple-700 rounded-full text-white font-bold">✨ Qui-suis-je ?</div>
                 </motion.div>
                 <motion.h1 initial={{opacity: 0, scale: 0}} animate={{opacity: 1, scale: 1}} className="text-6xl md:text-6xl font-medium text-center mt-6">
