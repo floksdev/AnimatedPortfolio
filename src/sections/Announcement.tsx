@@ -1,5 +1,5 @@
 import Tag from "@/components/Tag";
-import { TypewriterEffect } from "@/components/typewriter-effect";
+import { TypewriterEffect } from "@/components/TypeWriter";
 
 
 export default function Announcement() {

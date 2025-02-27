@@ -2,7 +2,7 @@ import Tag from "@/components/Tag";
 import { Timeline } from "@/components/Timeline";
 
 export default function Experiences() {
-    const timelineData: TimelineEntry[] = [
+    const timelineData = [
         {
             title: "Début de l'aventure",
             content: "J'ai commencé mon parcours en tant que développeur en 2015.",
