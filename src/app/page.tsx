@@ -21,7 +21,6 @@ export default function Home() {
             <Integrations />
             <Cv />
             <Contact />
-            <Footer />
         </>
     )
 }
