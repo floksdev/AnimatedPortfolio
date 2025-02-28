@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import Button from "@/components/Button";
 
 export const ContainerScroll = ({
   titleComponent,
@@ -49,6 +50,9 @@ export const ContainerScroll = ({
         <Card rotate={rotate} translate={translate} scale={scale}>
           {children}
         </Card>
+        <div className="flex justify-center mt-16">
+          <Button variant="tertiary" href="@/assets/cv.svg">Télécharger le CV</Button>
+        </div>
       </div>
     </div>
   );

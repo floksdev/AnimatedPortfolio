@@ -1,6 +1,6 @@
 import Tag from "@/components/Tag";
 import { ContainerScroll } from "@/components/ContainerScrollAnimation";
-import { Button }
+import Button from "@/components/Button";
 import TitleComponent from "@/components/TitleComponent";
 import CvPreview from "@/assets/images/CvPreview.svg"
 import Image from "next/image";
@@ -21,7 +21,6 @@ export default function Cv() {
                         />
                     </div>
                     </ContainerScroll>
-                    <Button></Button>
                 </div>
             </div>
         </section>
