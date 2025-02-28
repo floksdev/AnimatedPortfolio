@@ -35,6 +35,15 @@ export const ContainerScroll = ({
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/CV.pdf"; // Assurez-vous que le fichier est bien placé dans le dossier public de Next.js
+    link.download = "Tristan-Wehrle-CV.pdf"; // Nom du fichier lors du téléchargement
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div
       className="h-[50rem] md:h-[70rem] flex items-center justify-center relative p-2 md:p-20"
@@ -51,7 +60,7 @@ export const ContainerScroll = ({
           {children}
         </Card>
         <div className="flex justify-center mt-16">
-          <Button variant="tertiary" href="@/assets/cv.svg">Télécharger le CV</Button>
+          <Button variant="tertiary" onClick={handleDownload}>Télécharger le CV</Button>
         </div>
       </div>
     </div>
