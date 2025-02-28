@@ -7,7 +7,7 @@ import TitleComponent from "@/components/TitleComponent";
 import Button from "@/components/Button";
 
 export default function Contact() {
-const formRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showAlert, setShowAlert] = useState(false);
@@ -22,15 +22,27 @@ const formRef = useRef<HTMLFormElement>(null);
     setError("");
     setSuccess("");
 
-    emailjs.sendForm("service_kmiuplr", "template_8zwjvpv", formRef.current)
-      .then((result) => {
-        console.log("SUCCESS!", result.text);
-        setSuccess("Votre message a été envoyé avec succès !");
-        formRef.current.reset();
-      }, (error) => {
-        console.error("FAILED...", error.text);
-        setError("Une erreur est survenue lors de l'envoi. Veuillez réessayer plus tard.");
-      });
+    // Vérifie que formRef.current n'est pas null
+    if (!formRef.current) {
+      setError("Le formulaire n'est pas chargé.");
+      return;
+    }
+
+    emailjs
+      .sendForm("service_kmiuplr", "template_8zwjvpv", formRef.current)
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          setSuccess("Votre message a été envoyé avec succès !");
+          formRef.current?.reset();
+        },
+        (error) => {
+          console.error("FAILED...", error.text);
+          setError(
+            "Une erreur est survenue lors de l'envoi. Veuillez réessayer plus tard."
+          );
+        }
+      );
   };
 
   return (
@@ -41,9 +53,15 @@ const formRef = useRef<HTMLFormElement>(null);
           <TitleComponent className="text-6xl font-bold text-white w-full md:w-1/2 text-center">
             Hâte de vous <span className="text-violet-600">répondre</span>
           </TitleComponent>
-          <form ref={formRef} onSubmit={handleSubmit} className="w-full md:w-1/2 grid grid-cols-1 gap-6">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="w-full md:w-1/2 grid grid-cols-1 gap-6"
+          >
             <div className="flex flex-col">
-              <label htmlFor="user_name" className="sr-only">Votre nom</label>
+              <label htmlFor="user_name" className="sr-only">
+                Votre nom
+              </label>
               <input
                 type="text"
                 id="user_name"
@@ -54,7 +72,9 @@ const formRef = useRef<HTMLFormElement>(null);
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="user_email" className="sr-only">Votre e-mail</label>
+              <label htmlFor="user_email" className="sr-only">
+                Votre e-mail
+              </label>
               <input
                 type="email"
                 id="user_email"
@@ -65,20 +85,42 @@ const formRef = useRef<HTMLFormElement>(null);
               />
             </div>
             <div className="flex flex-col">
-              <label htmlFor="message" className="sr-only">Votre message</label>
+              <label htmlFor="message" className="sr-only">
+                Votre message
+              </label>
               <textarea
                 id="message"
                 name="message"
                 placeholder="Votre message"
                 required
-                rows="4"
                 className="text-white rounded-lg px-4 py-2 bg-black border-2 border-violet-600 resize-none scrollbar-thin scrollbar-thumb-violet-600 scrollbar-track-transparent scrollbar-thumb-rounded focus:outline-none focus:ring-2 focus:ring-violet-600"
               ></textarea>
             </div>
-            <Alert message="Erreur" description="ceci est une erreur !" duration={15000} onClose={() => console.log("cc")} />
-            {error && <Alert message="Erreur" description={error} duration={5000} onClose={() => setError("")} />}
-            {success && <Alert message="Succès" description={success} duration={5000} onClose={() => setSuccess("")} />}
-            <Button variant="primary" type="submit">Envoyer le message</Button>
+            {/* <Alert
+              message="Erreur"
+              description="ceci est une erreur !"
+              duration={15000}
+              onClose={() => console.log("cc")}
+            /> */}
+            {error && (
+              <Alert
+                message="Erreur"
+                description={error}
+                duration={5000}
+                onClose={() => setError("")}
+              />
+            )}
+            {success && (
+              <Alert
+                message="Succès"
+                description={success}
+                duration={5000}
+                onClose={() => setSuccess("")}
+              />
+            )}
+            <Button variant="primary" type="submit">
+              Envoyer le message
+            </Button>
           </form>
         </div>
       </div>

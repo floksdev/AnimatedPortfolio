@@ -41,7 +41,7 @@ export default function AlertComponent({
                 setVisible(false);
                 onClose();
               }} 
-              className="ml-4 text-violet-600 hover:text-violet-400"
+              className="ml-4 text-white hover:text-neutral-400"
               aria-label="Fermer l'alerte"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
