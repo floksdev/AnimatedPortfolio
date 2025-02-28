@@ -1,15 +1,16 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import { Alert } from "antd";
+import Alert from "@/components/Alert";
 import Tag from "@/components/Tag";
 import TitleComponent from "@/components/TitleComponent";
 import Button from "@/components/Button";
 
 export default function Contact() {
-  const formRef = useRef();
+const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     // Initialisation avec la clé publique (n'utilisez jamais la clé privée côté client)
@@ -74,8 +75,9 @@ export default function Contact() {
                 className="text-white rounded-lg px-4 py-2 bg-black border-2 border-violet-600 resize-none scrollbar-thin scrollbar-thumb-violet-600 scrollbar-track-transparent scrollbar-thumb-rounded focus:outline-none focus:ring-2 focus:ring-violet-600"
               ></textarea>
             </div>
-            {error && <Alert className="bg-black" message={error} type="error" showIcon />}
-            {success && <Alert message={success} type="success" showIcon />}
+            <Alert message="Erreur" description="ceci est une erreur !" duration={15000} onClose={() => console.log("cc")} />
+            {error && <Alert message="Erreur" description={error} duration={5000} onClose={() => setError("")} />}
+            {success && <Alert message="Succès" description={success} duration={5000} onClose={() => setSuccess("")} />}
             <Button variant="primary" type="submit">Envoyer le message</Button>
           </form>
         </div>
