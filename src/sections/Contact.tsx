@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { Alert } from "antd";
 import Tag from "@/components/Tag";
 import TitleComponent from "@/components/TitleComponent";
 import Button from "@/components/Button";
@@ -11,7 +12,7 @@ export default function Contact() {
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    // Initialisation avec la clé publique (ne jamais utiliser la clé privée côté client)
+    // Initialisation avec la clé publique (n'utilisez jamais la clé privée côté client)
     emailjs.init("M5jY8olEbPJDK1hd1");
   }, []);
 
@@ -19,8 +20,6 @@ export default function Contact() {
     e.preventDefault();
     setError("");
     setSuccess("");
-
-    // Vous pouvez ajouter ici des validations complémentaires si nécessaire
 
     emailjs.sendForm("service_kmiuplr", "template_8zwjvpv", formRef.current)
       .then((result) => {
@@ -75,8 +74,8 @@ export default function Contact() {
                 className="text-white rounded-lg px-4 py-2 bg-black border-2 border-violet-600 resize-none scrollbar-thin scrollbar-thumb-violet-600 scrollbar-track-transparent scrollbar-thumb-rounded focus:outline-none focus:ring-2 focus:ring-violet-600"
               ></textarea>
             </div>
-            {error && <div className="text-red-500 font-medium">{error}</div>}
-            {success && <div className="text-green-500 font-medium">{success}</div>}
+            {error && <Alert className="bg-black" message={error} type="error" showIcon />}
+            {success && <Alert message={success} type="success" showIcon />}
             <Button variant="primary" type="submit">Envoyer le message</Button>
           </form>
         </div>
