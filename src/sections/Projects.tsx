@@ -14,7 +14,7 @@ export default function Projects() {
                     <Tag>Quelques projets</Tag>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600" tags={["ReactJS", "NodeJS", "MongoDB"]}>
-                            <img
+                            <Image
                                 className="h-2/5 w-full absolute inset-0 object-cover"
                                 src={Epitrello}
                             />
@@ -34,9 +34,9 @@ export default function Projects() {
                             </div>
                         </GlareCard>
                         <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600" tags={["C", "Makefile"]}>
-                            <img
+                            <Image
                                 className="h-2/5 w-full absolute inset-0 object-cover"
-                                src="https://www.dropbox.com/scl/fi/aehbm2tobsncfgpgz1x51/Minishell.svg"
+                                src={Minishell}
                             />
                             <div className="pt-2 h-3/5 w-full">
                                 <div className="flex flex-row items-center justify-between">
@@ -54,9 +54,9 @@ export default function Projects() {
                             </div>
                         </GlareCard>
                         <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600" tags={["C++", "SFML", "UDP"]}>
-                            <img
+                            <Image
                                 className="h-2/5 w-full absolute inset-0 object-cover"
-                                src="https://images.unsplash.com/photo-1512618831669-521d4b375f5d?q=80&w=3388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                src={RType}
                             />
                             <div className="pt-2 h-3/5 w-full">
                                 <div className="flex flex-row items-center justify-between">
