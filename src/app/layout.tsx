@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 function GridBackgroundDemo() {
   return (
     <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-      <div className="w-full h-full bg-neutral-950 bg-grid-white/[0.2] relative">
+      <div className="w-full h-full bg-neutral-950 bg- bg-grid-white/[0.2] relative">
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       </div>
     </div>
