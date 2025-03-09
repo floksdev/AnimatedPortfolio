@@ -2,6 +2,9 @@ import Tag from "@/components/Tag";
 import { GlareCard } from "@/components/Card";
 import Image from "next/image";
 import clock from "@/assets/images/Clock.svg";
+import Epitrello from "@/assets/images/EpiTrello.svg";
+import Minishell from "@/assets/images/Minishell.svg";
+import RType from "@/assets/images/R-Type.svg";
 
 export default function Projects() {
     return (
@@ -10,10 +13,10 @@ export default function Projects() {
                 <div className="flex justify-center items-center flex-col gap-14">
                     <Tag>Quelques projets</Tag>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600">
+                    <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600" tags={["ReactJS", "NodeJS", "MongoDB"]}>
                             <img
                                 className="h-2/5 w-full absolute inset-0 object-cover"
-                                src="https://images.unsplash.com/photo-1512618831669-521d4b375f5d?q=80&w=3388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                src={Epitrello}
                             />
                             <div className="pt-2 h-3/5 w-full">
                                 <div className="flex flex-row items-center justify-between">
@@ -22,18 +25,18 @@ export default function Projects() {
                                     </p>
                                     <p className=" text-white text-s flex flex-raw justify-end gap-1.5">
                                         <Image className="w-5" alt="Clockl" src={clock}></Image>
-                                        3 mois
+                                            3 mois
                                     </p>
                                 </div>
                                 <p className="font-normal text-base text-neutral-200 mt-4">
-                                    Card desc...
+                                    Une application web de gestion de tâches inspirée de Trello. Conception d\'une API REST, gestion des utilisateurs et implémentation du drag-and-drop pour organiser les tâches.
                                 </p>
                             </div>
                         </GlareCard>
-                        <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600">
+                        <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600" tags={["C", "Makefile"]}>
                             <img
                                 className="h-2/5 w-full absolute inset-0 object-cover"
-                                src="https://images.unsplash.com/photo-1512618831669-521d4b375f5d?q=80&w=3388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                src="https://www.dropbox.com/scl/fi/aehbm2tobsncfgpgz1x51/Minishell.svg"
                             />
                             <div className="pt-2 h-3/5 w-full">
                                 <div className="flex flex-row items-center justify-between">
@@ -42,15 +45,15 @@ export default function Projects() {
                                     </p>
                                     <p className=" text-white text-s flex flex-raw justify-end gap-1.5">
                                         <Image className="w-5" alt="Clockl" src={clock}></Image>
-                                        1 mois
+                                            1 mois
                                     </p>
                                 </div>
                                 <p className="font-normal text-base text-neutral-200 mt-4">
-                                    Card desc...
+                                    Un mini-interpréteur de commandes fonctionnant comme Bash. Gestion des processus, exécution des commandes Unix, redirections et pipes.
                                 </p>
                             </div>
                         </GlareCard>
-                        <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600">
+                        <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600" tags={["C++", "SFML", "UDP"]}>
                             <img
                                 className="h-2/5 w-full absolute inset-0 object-cover"
                                 src="https://images.unsplash.com/photo-1512618831669-521d4b375f5d?q=80&w=3388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -66,7 +69,7 @@ export default function Projects() {
                                     </p>
                                 </div>
                                 <p className="font-normal text-base text-neutral-200 mt-4">
-                                    Card desc...
+                                    Développement d\'un jeu multijoueur inspiré du classique R-Type. Implémentation d’un moteur réseau en C++ avec UDP pour la communication entre clients et serveur.
                                 </p>
                             </div>
                         </GlareCard>
