@@ -1,5 +1,5 @@
 
-import HorizontalTimeline from "@/components/ZigzagCar";
+import HorizontalTimeline from "@/components/CustomTimeline";
 import Tag from "@/components/Tag";
 import { Timeline } from "@/components/Timeline";
 
