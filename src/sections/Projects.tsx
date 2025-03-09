@@ -7,7 +7,7 @@ export default function Projects() {
     return (
         <section>
             <div className="container py-24">
-                <div className="flex justify-center items-center flex-col gap-20">
+                <div className="flex justify-center items-center flex-col gap-14">
                     <Tag>Quelques projets</Tag>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <GlareCard className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600">
@@ -38,11 +38,11 @@ export default function Projects() {
                             <div className="pt-2 h-3/5 w-full">
                                 <div className="flex flex-row items-center justify-between">
                                     <p className="font-bold text-white text-xl">
-                                        Epitrello
+                                        Minishell
                                     </p>
                                     <p className=" text-white text-s flex flex-raw justify-end gap-1.5">
                                         <Image className="w-5" alt="Clockl" src={clock}></Image>
-                                        3 mois
+                                        1 mois
                                     </p>
                                 </div>
                                 <p className="font-normal text-base text-neutral-200 mt-4">
@@ -58,11 +58,11 @@ export default function Projects() {
                             <div className="pt-2 h-3/5 w-full">
                                 <div className="flex flex-row items-center justify-between">
                                     <p className="font-bold text-white text-xl">
-                                        Epitrello
+                                        R-Type
                                     </p>
                                     <p className=" text-white text-s flex flex-raw justify-end gap-1.5">
                                         <Image className="w-5" alt="Clockl" src={clock}></Image>
-                                        3 mois
+                                        2 semaines
                                     </p>
                                 </div>
                                 <p className="font-normal text-base text-neutral-200 mt-4">

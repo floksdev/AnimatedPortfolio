@@ -13,7 +13,6 @@ export default function Contact() {
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    // Initialisation avec la clé publique (n'utilisez jamais la clé privée côté client)
     emailjs.init("M5jY8olEbPJDK1hd1");
   }, []);
 
@@ -22,7 +21,6 @@ export default function Contact() {
     setError("");
     setSuccess("");
 
-    // Vérifie que formRef.current n'est pas null
     if (!formRef.current) {
       setError("Le formulaire n'est pas chargé.");
       return;
@@ -48,9 +46,9 @@ export default function Contact() {
   return (
     <section>
       <div className="container">
-        <div className="flex justify-center items-center flex-col gap-6">
+        <div className="flex justify-center items-center flex-col gap-10">
           <Tag>Contact</Tag>
-          <TitleComponent className="text-6xl font-bold text-white w-full md:w-1/2 text-center">
+          <TitleComponent className="mt-6 text-6xl font-bold text-white w-full md:w-1/2 text-center">
             Hâte de vous <span className="text-violet-600">répondre</span>
           </TitleComponent>
           <form
@@ -97,10 +95,10 @@ export default function Contact() {
               ></textarea>
             </div>
             {/* <Alert
-              message="Erreur"
-              description="ceci est une erreur !"
-              duration={15000}
-              onClose={() => console.log("cc")}
+                message="Votre message a bien été envoyé !"
+                description={success}
+                duration={5000}
+                onClose={() => setSuccess("")}
             /> */}
             {error && (
               <Alert
@@ -112,7 +110,7 @@ export default function Contact() {
             )}
             {success && (
               <Alert
-                message="Succès"
+                message="Votre message a bien été envoyé !"
                 description={success}
                 duration={5000}
                 onClose={() => setSuccess("")}

@@ -43,7 +43,7 @@ const CompanyLogoData: Array<{ src: any; alt: string }> = [
 
 const InfiniteScrollingLogosAnimation = () => {
   return (
-      <div className="container p-5">
+      <div className="container p-10">
           <div className="flex relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-10 before:bg-gradient-to-r before:from-zinc-950 before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:h-full after:w-10 after:bg-gradient-to-l after:from-zinc-950 after:to-transparent after:content-['']">
             <motion.div
               transition={{
@@ -62,7 +62,7 @@ const InfiniteScrollingLogosAnimation = () => {
                       key={alt}
                       src={src}
                       alt={alt}
-                      className="h-8 w-auto flex-none"
+                      className="h-10 w-auto flex-none"
                     />
                   ))}
                 </React.Fragment>

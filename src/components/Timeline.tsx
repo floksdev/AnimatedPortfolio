@@ -125,8 +125,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div className="w-full bg-transparent font-sans">
-      <div className="flex justify-center items-center mt-6">
-        <h1 className="font-bold text-5xl w-[60%] text-center">
+      <div className="flex justify-center items-center mt-8">
+        <h1 className="font-bold text-6xl w-[60%] text-center h-15">
           Voici mes expériences <span className="text-violet-600">professionnelles</span>
         </h1>
       </div>

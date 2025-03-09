@@ -11,8 +11,7 @@ export default function Footer() {
     return (
         <section>
             <div className="container">
-                <div className="flex justify-center items-center flex-col">
-                    <Tag>Footer</Tag>
+                <div className="flex justify-center items-center flex-col h-32">
                 </div>
             </div>
         </section>

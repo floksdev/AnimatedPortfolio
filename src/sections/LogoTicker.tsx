@@ -21,14 +21,21 @@ import C from "@/assets/images/techno/C.svg";
 import FramerMotion from "@/assets/images/techno/FramerMotion.svg";
 import InfiniteScrollingLogosAnimation from "@/components/InfiniteScrollAnimation";
 import CountAnimation from "@/components/Counter";
+import { useInView } from "motion/react"
+import { useRef, useEffect } from "react";
 
 export default function LogoTicker() {
+    const ref = useRef(null);
+    const isInView = useInView(ref);
+    useEffect(() => {
+        console.log("Element is in view: ", isInView)
+    }, [isInView])
     return (
-    <section className="py-24 overflow-x-clip">
+    <section ref= {ref} className="py-24 overflow-x-clip">
         <div className="container">
             <div className="flex justify-center items-center gap-2">
                 <CountAnimation number={18} className="text-7xl text-violet-500 font-bold"/>
-                <h3 className="text-center text-white/50 text-xl font-bold">langages, frameworks et<br /> technologies maîtrisés ...</h3>
+                <h3 className="text-center text-white/50 text-xl font-bold">languages, frameworks et<br />technologies maîtrisés ....</h3>
             </div>
             <div className="flex overflow-hidden mt-7 [mask-image:linear-gradient(to_right,transparent,black_90%,transparent)]">
                 <InfiniteScrollingLogosAnimation/>

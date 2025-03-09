@@ -1,5 +1,4 @@
 
-import HorizontalTimeline from "@/components/CustomTimeline";
 import Tag from "@/components/Tag";
 import { Timeline } from "@/components/Timeline";
 
@@ -21,7 +20,7 @@ export default function Experiences() {
 
     return (
         <section>
-            <div className="container">
+            <div className="container py-24">
                 <div className="flex justify-center items-center flex-col">
                     <Tag>Experiences</Tag>
                     <Timeline data={timelineData}/>

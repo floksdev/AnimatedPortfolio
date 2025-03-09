@@ -25,7 +25,6 @@ export default function IntegrationColumn(props: { integrations: IntegrationType
                     ))}
                 </Fragment>
             ))}
-            
         </motion.div>
     );
 }
