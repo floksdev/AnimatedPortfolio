@@ -166,7 +166,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 containerRef={containerRef}
                 heightTransform={heightTransform}
               >
-                <div className="flex items-center justify-center border rounded-3xl w-auto bg-neutral-800 p-4 text-white font-medium h-20">
+                <div className="flex items-center justify-center border rounded-3xl w-auto bg-neutral-800 p-4 text-white font-medium h-auto">
                   {item.content}
                 </div>
               </AnimatedItem>

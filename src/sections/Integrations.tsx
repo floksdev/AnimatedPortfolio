@@ -3,17 +3,19 @@ import Image from "next/image";
 import figmaIcon from "@/assets/images/figma-logo.svg";
 import notionIcon from "@/assets/images/notion-logo.svg";
 import slackIcon from "@/assets/images/slack-logo.svg";
-import relumeIcon from "@/assets/images/relume-logo.svg";
-import framerIcon from "@/assets/images/framer-logo.svg";
+import photoshopIcon from "@/assets/images/Photoshop.svg";
+import cinema4DIcon from "@/assets/images/Cinema4D.svg";
 import githubIcon from "@/assets/images/github-logo.svg";
+import blenderIcon from "@/assets/images/Blender.svg";
 import IntegrationColumn from "@/components/IntegrationsColumn";
 
 const integrations = [
     { name: "Figma", icon: figmaIcon, description: "Figma is a collaborative interface design tool." },
     { name: "Notion", icon: notionIcon, description: "Notion is an all-in-one workspace for notes and docs." },
     { name: "Slack", icon: slackIcon, description: "Slack is a powerful team communication platform." },
-    { name: "Relume", icon: relumeIcon, description: "Relume is a no-code website builder and design system." },
-    { name: "Framer", icon: framerIcon, description: "Framer is a professional website prototyping tool." },
+    { name: "Photoshop", icon: photoshopIcon, description: "Relume is a no-code website builder and design system." },
+    { name: "Cinema4D", icon: cinema4DIcon, description: "Framer is a professional website prototyping tool." },
+    { name: "Blender", icon: blenderIcon, description: "Framer is a professional website prototyping tool." },
     { name: "GitHub", icon: githubIcon, description: "GitHub is the leading platform for code collaboration." },
 ];
 
