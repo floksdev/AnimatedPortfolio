@@ -44,7 +44,7 @@ export default function Contact() {
   };
 
   return (
-    <section>
+    <section id="contact" className="py-24">
       <div className="container">
         <div className="flex justify-center items-center flex-col gap-10">
           <Tag>Contact</Tag>

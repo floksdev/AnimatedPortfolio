@@ -10,15 +10,14 @@ import blenderIcon from "@/assets/images/Blender.svg";
 import IntegrationColumn from "@/components/IntegrationsColumn";
 
 const integrations = [
-    { name: "Figma", icon: figmaIcon, description: "Figma is a collaborative interface design tool." },
-    { name: "Notion", icon: notionIcon, description: "Notion is an all-in-one workspace for notes and docs." },
-    { name: "Slack", icon: slackIcon, description: "Slack is a powerful team communication platform." },
-    { name: "Photoshop", icon: photoshopIcon, description: "Relume is a no-code website builder and design system." },
-    { name: "Cinema4D", icon: cinema4DIcon, description: "Framer is a professional website prototyping tool." },
-    { name: "Blender", icon: blenderIcon, description: "Framer is a professional website prototyping tool." },
-    { name: "GitHub", icon: githubIcon, description: "GitHub is the leading platform for code collaboration." },
+    { name: "Figma", icon: figmaIcon, description: "Outil collaboratif de conception d'interfaces." },
+    { name: "Notion", icon: notionIcon, description: "Espace de travail tout-en-un pour notes et documents." },
+    { name: "Slack", icon: slackIcon, description: "Plateforme de communication d'équipe." },
+    { name: "Photoshop", icon: photoshopIcon, description: "Logiciel de création graphique et d'édition d'images." },
+    { name: "Cinema4D", icon: cinema4DIcon, description: "Logiciel de modélisation et animation 3D." },
+    { name: "GitHub", icon: githubIcon, description: "Plateforme de collaboration pour le code." },
 ];
-
+  
 export type IntegrationType = typeof integrations;
 
 export default function Integrations() {

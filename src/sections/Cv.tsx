@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Cv() {
     return (
-        <section>
+        <section id="cv" className="py-48">
             <div className="container">
                 <div className="flex justify-center items-center flex-col">
                     <Tag>Mon CV</Tag>

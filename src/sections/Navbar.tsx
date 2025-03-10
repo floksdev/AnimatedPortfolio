@@ -11,10 +11,18 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
     { label: "Accueil", href: "#" },
-    { label: "Projets", href: "#features" },
-    { label: "Experiences", href: "#integrations" },
-    { label: "CV", href: "#faqs" },
+    { label: "Projets", href: "#projects" },
+    { label: "Experiences", href: "#experiences" },
+    { label: "CV", href: "#cv" },
 ];
+
+function LinkedinRedirection()
+{
+    window.open(
+        'https://linkedin.com/in/tristan-wehrle',
+        '_blank'
+      );
+};
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,8 +59,8 @@ export default function Navbar() {
                         <line x1="3" y1="12" x2="21" y2="12" className={twMerge("transition", isOpen && "opacity-0")}></line>
                         <line x1="3" y1="18" x2="21" y2="18" className={twMerge("origin-left transition", isOpen && '-rotate-45 translate-y-1')}></line>
                     </svg>
-                    <Button className="hidden md:inline-flex items-center" variant="secondary">Linkedin</Button>
-                    <Button className="hidden md:inline-flex items-center" variant="primary">Contact</Button>
+                    <Button className="hidden md:inline-flex items-center" variant="secondary" onClick={() => {LinkedinRedirection()}}>Linkedin</Button>
+                    <Button className="hidden md:inline-flex items-center" variant="primary" href="#contact">Contact</Button>
                 </div>
                     </div>
                     <AnimatePresence>
@@ -70,7 +78,6 @@ export default function Navbar() {
             </div>
         </section>
         <div className="pb-[86px] md:pb-[96px] lg:pb-[130px]">
-
         </div>
     </>
     );

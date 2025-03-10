@@ -56,8 +56,8 @@ export default function Experiences() {
     ];
 
     return (
-        <section>
-            <div className="container py-24">
+        <section id="experiences" className="py-48">
+            <div className="container">
                 <div className="flex justify-center items-center flex-col">
                     <Tag>Experiences</Tag>
                     <Timeline data={timelineData}/>

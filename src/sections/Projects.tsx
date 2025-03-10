@@ -8,8 +8,8 @@ import RType from "@/assets/images/R-Type.svg";
 
 export default function Projects() {
     return (
-        <section>
-            <div className="container py-24">
+        <section id="projects" className="py-48">
+            <div className="container">
                 <div className="flex justify-center items-center flex-col gap-14">
                     <Tag>Quelques projets</Tag>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
