@@ -30,7 +30,12 @@ export default function Projects() {
       <div className="container">
         <div className="flex justify-center items-center flex-col gap-14">
           <Tag>Quelques projets</Tag>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid 
+                          grid-cols-1
+                          sm:grid-cols-1
+                          md:grid-cols-1
+                          lg:grid-cols-3
+                          gap-8">
             <GlareCard
               className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600"
               tags={["ReactJS", "NodeJS", "MongoDB"]}
@@ -59,6 +64,7 @@ export default function Projects() {
                 </div>
               </div>
             </GlareCard>
+
             <GlareCard
               className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600"
               tags={["C", "Makefile"]}
@@ -79,14 +85,15 @@ export default function Projects() {
                 </div>
                 <p className="font-normal text-base text-neutral-200 mt-4">
                   Un mini-interpréteur de commandes fonctionnant comme Bash.
-                  Gestion des processus, exécution des commandes Unix, redirections
-                  et pipes.
+                  Gestion des processus, exécution des commandes Unix,
+                  redirections et pipes.
                 </p>
                 <div className="absolute right-6 bottom-6">
                   <LuSquareArrowOutUpRight size={20} />
                 </div>
               </div>
             </GlareCard>
+
             <GlareCard
               className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600"
               tags={["C++", "SFML", "UDP"]}
@@ -107,8 +114,8 @@ export default function Projects() {
                 </div>
                 <p className="font-normal text-base text-neutral-200 mt-4">
                   Développement d'un jeu multijoueur inspiré du classique R-Type.
-                  Implémentation d’un moteur réseau en C++ avec UDP pour la communication
-                  entre clients et serveur.
+                  Implémentation d’un moteur réseau en C++ avec UDP pour la
+                  communication entre clients et serveur.
                 </p>
                 <div className="absolute right-6 bottom-6">
                   <LuSquareArrowOutUpRight size={20} />
