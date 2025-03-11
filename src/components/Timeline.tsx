@@ -37,7 +37,6 @@ const AnimatedPoint = ({
     [0, 1],
     { clamp: true }
   );
-  // On garde un léger zoom, ou on peut laisser [1,1] pour pas d’animation
   const scale = useTransform(litValue, [0, 1], [1, 1.2]);
   const filterValue = useTransform(
     litValue,
@@ -83,7 +82,6 @@ const AnimatedItem = ({
     { clamp: true }
   );
 
-  // Pour avoir une taille plus grande en permanence, tu peux fixer [1.05, 1.05].
   const scale = useTransform(litValue, [0, 1], [1, 1.05]);
   const filterValue = useTransform(
     litValue,
@@ -112,7 +110,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 50%"],
+    offset: ["start 50%", "end 50%"],
   });
 
   const heightTransform = useTransform(
@@ -137,7 +135,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         ref={containerRef}
         className="relative max-w-7xl mx-auto pb-20 flex flex-col items-center"
       >
-        {/* Barre verticale */}
         <div className="absolute left-1/2 transform -translate-x-1/2 top-[100px] w-[4px] h-full z-0 overflow-hidden">
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
@@ -145,7 +142,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           />
         </div>
 
-        {/* Eléments de la timeline */}
         <div className="flex flex-col items-center space-y-10 z-10">
           {data.map((item, index) => (
             <div
@@ -163,7 +159,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 containerRef={containerRef}
                 heightTransform={heightTransform}
               >
-                {/* Date agrandie */}
                 <div className="font-bold text-neutral-400 text-6xl">
                   {item.title}
                 </div>
@@ -173,7 +168,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 containerRef={containerRef}
                 heightTransform={heightTransform}
               >
-                {/* Cadre plus grand, texte plus grand */}
                 <div className="flex items-center justify-center border rounded-3xl w-auto bg-neutral-800 p-6 text-white font-medium text-xl h-auto">
                   {item.content}
                 </div>
