@@ -48,7 +48,7 @@ const AnimatedPoint = ({
     <motion.div
       ref={pointRef}
       style={{ scale, filter: filterValue }}
-      className="flex justify-center items-center h-10 w-10 rounded-full bg-violet-600 border border-violet-700 p-2"
+      className="flex justify-center items-center h-8 w-8 md:h-10 md:w-10 rounded-full bg-violet-600 border border-violet-700 p-2"
     >
       {children}
     </motion.div>
@@ -127,7 +127,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className="w-full bg-transparent font-sans">
       <div className="flex justify-center items-center mt-8">
-        <h1 className="font-bold text-6xl w-[60%] text-center h-15">
+        <h1 className="font-bold text-3xl md:text-6xl w-full md:w-[60%] text-center">
           Voici mes expériences <span className="text-violet-600">professionnelles</span>
         </h1>
       </div>
@@ -135,7 +135,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         ref={containerRef}
         className="relative max-w-7xl mx-auto pb-20 flex flex-col items-center"
       >
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-[100px] w-[4px] h-full z-0 overflow-hidden">
+        <div className="absolute left-1/2 transform -translate-x-1/2 top-[60px] md:top-[100px] w-[4px] h-full z-0 overflow-hidden">
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
             className="w-full bg-gradient-to-t from-purple-500 via-blue-500 to-transparent rounded-full"
@@ -159,7 +159,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 containerRef={containerRef}
                 heightTransform={heightTransform}
               >
-                <div className="font-bold text-neutral-400 text-6xl">
+                <div className="font-bold text-neutral-400 text-3xl md:text-6xl">
                   {item.title}
                 </div>
               </AnimatedItem>
@@ -168,7 +168,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 containerRef={containerRef}
                 heightTransform={heightTransform}
               >
-                <div className="flex items-center justify-center border rounded-3xl w-auto bg-neutral-800 p-6 text-white font-medium text-xl h-auto">
+                <div className="flex items-center justify-center border rounded-3xl w-auto bg-neutral-800 p-4 md:p-6 text-white font-medium text-lg md:text-xl">
                   {item.content}
                 </div>
               </AnimatedItem>
