@@ -1,8 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRef } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaReact } from "react-icons/fa";
 
 export const GlareCard = ({
   children,
@@ -15,6 +16,7 @@ export const GlareCard = ({
   tags?: string[];
   url: string;
 }) => {
+  const [activeTag, setActiveTag] = useState<string | null>(null);
   const isPointerInside = useRef(false);
   const refElement = useRef<HTMLDivElement>(null);
   const state = useRef({
@@ -60,6 +62,21 @@ export const GlareCard = ({
       refElement.current.style.setProperty("--bg-x", `${background.x}%`);
       refElement.current.style.setProperty("--bg-y", `${background.y}%`);
     }
+  };
+
+  // Retourne la suite de la phrase en fonction du tag
+  const getTagDescription = (tag: string) => {
+    const descriptions: { [key: string]: string } = {
+      "ReactJS": "une bibliothèque pour créer des interfaces utilisateur interactives.",
+      "NodeJS": "un environnement d'exécution JavaScript pour le serveur.",
+      "MongoDB": "une base de données NoSQL flexible et évolutive.",
+      "C": "un langage de programmation bas niveau, efficace et rapide.",
+      "Makefile": "un fichier de script pour automatiser la compilation de programmes.",
+      "C++": "un langage de programmation performant et orienté objet.",
+      "SFML": "une bibliothèque multimédia pour la création d'applications graphiques.",
+      "UDP": "un protocole de communication sans connexion pour des échanges rapides.",
+    };
+    return descriptions[tag] || "une description non disponible pour ce tag.";
   };
 
   return (
@@ -139,6 +156,10 @@ export const GlareCard = ({
                 boxShadow: "0 0 8px rgba(255, 255, 255, 0.8)",
                 transition: { duration: 0.3 },
               }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveTag(tag);
+              }}
               className="border-2 border-violet-600 rounded-xl w-auto pr-1 pl-1 pb-0 bg-neutral-800 text-center cursor-pointer"
             >
               {tag}
@@ -146,6 +167,40 @@ export const GlareCard = ({
           ))}
         </div>
       )}
+
+      <AnimatePresence>
+        {activeTag && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+            onClick={() => setActiveTag(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-neutral-900 text-white p-6 rounded-lg shadow-lg max-w-sm mx-4"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <FaReact size={24} className="text-violet-600" />
+                <h2 className="text-xl font-bold">Le saviez-vous ?</h2>
+              </div>
+              <p className="text-lg">
+                <span className="font-bold">{activeTag}</span> est {getTagDescription(activeTag)}
+              </p>
+              <button
+                onClick={() => setActiveTag(null)}
+                className="mt-4 px-4 py-2 bg-violet-600 rounded hover:bg-violet-700"
+              >
+                Fermer
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
