@@ -38,7 +38,7 @@ export default function Navbar() {
                 <div className="lg:flex justify-center items-center hidden">
                     <nav className="flex gap-6 pr-20 font-medium">
                         {navLinks.map(link => (
-                            <a href={link.href} key={link.label}>{link.label}</a>
+                            <a href={link.href} key={link.label} className="transition-colors hover:text-violet-400 font-bold">{link.label}</a>
                         ))}
                     </nav>
                 </div>
