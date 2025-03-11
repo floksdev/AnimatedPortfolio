@@ -66,7 +66,6 @@ const config: Config = {
       md: "768px",
       lg: "1200px",
     },
-    // Ajoutez ici d'autres personnalisations du thème si nécessaire
   },
   plugins: [
     require("tailwind-scrollbar"),

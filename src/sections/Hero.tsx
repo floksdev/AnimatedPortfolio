@@ -49,10 +49,16 @@ export default function Hero() {
           </motion.div>
           <motion.div
             variants={itemVariants}
-            className="py-1 px-3 bg-gradient-to-r from-violet-500 to-purple-700 rounded-full text-white font-bold"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 8px rgba(255, 255, 255, 0.8)",
+              transition: { duration: 0.3 },
+            }}
+            className="py-1 px-3 bg-gradient-to-r from-violet-500 to-purple-700 rounded-full text-white font-bold cursor-pointer"
           >
             ✨ Qui-suis-je ?
           </motion.div>
+
         </motion.div>
 
         <motion.h1
