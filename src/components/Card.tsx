@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export const GlareCard = ({
   children,
@@ -131,12 +132,17 @@ export const GlareCard = ({
       {tags && tags.length > 0 && (
         <div className="flex flex-row justify-center items-center gap-4 w-full mt-4">
           {tags.map((tag, index) => (
-            <div
+            <motion.div
               key={index}
-              className="border-2 border-violet-600 rounded-xl w-auto pr-1 pl-1 pb-0 bg-neutral-800 text-center"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 8px rgba(255, 255, 255, 0.8)",
+                transition: { duration: 0.3 },
+              }}
+              className="border-2 border-violet-600 rounded-xl w-auto pr-1 pl-1 pb-0 bg-neutral-800 text-center cursor-pointer"
             >
               {tag}
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
