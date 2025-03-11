@@ -30,14 +30,14 @@ export default function Announcement() {
             className="
                 mx-auto
                 w-full
-                max-w-md          /* par défaut sur mobile */
-                sm:max-w-lg       /* dès 640px */
-                md:max-w-2xl      /* dès 768px */
-                lg:max-w-3xl      /* dès 1024px, plus large */
+                max-w-md
+                sm:max-w-lg
+                md:max-w-2xl
+                lg:max-w-3xl
                 px-4
-                text-2xl          /* taille du texte par défaut */
-                sm:text-4xl       /* dès 640px */
-                md:text-5xl       /* dès 768px */
+                text-2xl
+                sm:text-4xl
+                md:text-5xl
                 font-medium 
                 text-center 
                 leading-tight

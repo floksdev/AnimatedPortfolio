@@ -23,7 +23,7 @@ function LinkedinRedirection() {
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
-    const homeRef = useRef(null); // Création d'une référence pour la section d'accueil
+    const homeRef = useRef(null);
 
     const handleNavClick = (e, href) => {
         e.preventDefault();
@@ -33,7 +33,6 @@ export default function Navbar() {
 
     return (
         <>
-            {/* Attribue la ref à la section pour l'accueil */}
             <section ref={homeRef} className="py-4 px-4 lg:py-8 lg:px-8 fixed w-full top-0 z-50">
                 <div className="container max-w-5xl">
                     <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop-blur">
@@ -41,7 +40,7 @@ export default function Navbar() {
                             <div>
                                 <a 
                                     href="#"
-                                    onClick={(e) => handleNavClick(e, "#")}  // Le logo déclenche le scroll vers le haut
+                                    onClick={(e) => handleNavClick(e, "#")}
                                 >
                                     <Image src={logoImage} alt="Layers logo" className="h-9 md:h-8 w-auto" />
                                 </a>
@@ -102,7 +101,9 @@ export default function Navbar() {
                                     className="hidden md:inline-flex items-center" 
                                     variant="primary" 
                                     href="#contact"
-                                    onClick={(e) => handleNavClick(e, "#contact")}
+                                    onClick={(e) => {
+                                        setIsOpen(false);
+                                    }}
                                 >
                                     Contact
                                 </Button>

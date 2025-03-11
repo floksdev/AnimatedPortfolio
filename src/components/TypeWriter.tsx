@@ -1,4 +1,3 @@
-// TypewriterEffect.tsx
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -52,8 +51,6 @@ export const TypewriterEffect = ({
               <motion.span
                 key={`char-${index}`}
                 className={cn(
-                  // On retire ici les classes de taille
-                  // pour laisser le parent tout gérer
                   "dark:text-white text-black opacity-0 hidden",
                   word.className
                 )}
@@ -71,7 +68,6 @@ export const TypewriterEffect = ({
   return (
     <div
       className={cn(
-        // On enlève "text-base sm:text-3xl ..." pour éviter les conflits
         "font-bold text-center", 
         className
       )}

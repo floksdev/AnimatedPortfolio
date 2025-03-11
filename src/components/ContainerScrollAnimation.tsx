@@ -27,7 +27,6 @@ export const ContainerScroll = ({
     };
   }, []);
 
-  // On adapte l’échelle en fonction de la taille d’écran
   const scaleDimensions = () => {
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
@@ -47,7 +46,6 @@ export const ContainerScroll = ({
 
   return (
     <div
-      // Sur mobile : hauteur auto, puis on applique des hauteurs spécifiques dès sm ou md
       className="
         h-auto
         sm:h-[50rem]
@@ -108,7 +106,6 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      // Sur mobile : width 100%, max-w-full ; dès sm ou md on restreint un peu plus
       className="
         w-full
         max-w-full

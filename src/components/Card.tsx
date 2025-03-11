@@ -64,7 +64,6 @@ export const GlareCard = ({
     }
   };
 
-  // Retourne la suite de la phrase en fonction du tag
   const getTagDescription = (tag: string) => {
     const descriptions: { [key: string]: string } = {
       "ReactJS": "une bibliothèque pour créer des interfaces utilisateur interactives.",
