@@ -127,7 +127,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className="w-full bg-transparent font-sans">
       <div className="flex justify-center items-center mt-8">
-        <h1 className="font-bold text-3xl md:text-6xl w-full md:w-[60%] text-center">
+        <h1 className="font-bold text-3xl md:text-5xl w-full md:w-[60%] text-center">
           Voici mes expériences <span className="text-violet-600">professionnelles</span>
         </h1>
       </div>
@@ -146,7 +146,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           {data.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center pt-10 md:pt-40 md:gap-10"
+              className="flex flex-col items-center pt-10 md:pt-40 md:gap-10 sm:gap-10"
             >
               <AnimatedPoint
                 containerRef={containerRef}
