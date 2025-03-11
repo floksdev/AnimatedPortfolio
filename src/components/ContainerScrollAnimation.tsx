@@ -37,8 +37,8 @@ export const ContainerScroll = ({
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/CV.pdf"; // Assurez-vous que le fichier est bien placé dans le dossier public de Next.js
-    link.download = "Tristan-Wehrle-CV.pdf"; // Nom du fichier lors du téléchargement
+    link.href = "/CV.pdf";
+    link.download = "Tristan-Wehrle-CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

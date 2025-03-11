@@ -5,19 +5,16 @@ import Pic from "@/assets/images/me.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-// Variants pour le container avec un effet de cascade
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      // Délai progressif pour les enfants
       staggerChildren: 0.2,
     },
   },
 };
 
-// Variants réutilisables pour chaque élément
 const itemVariants = {
   hidden: { opacity: 0, scale: 0.8, y: 20 },
   visible: {
@@ -28,7 +25,6 @@ const itemVariants = {
   },
 };
 
-// Variants spécifiques pour le texte principal avec une animation légèrement plus prononcée
 const titleVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -42,7 +38,6 @@ export default function Hero() {
   return (
     <section className="py-16">
       <div className="container">
-        {/* Container pour les éléments animés en cascade */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -60,7 +55,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Animation pour le titre principal */}
         <motion.h1
           variants={titleVariants}
           initial="hidden"
@@ -76,7 +70,6 @@ export default function Hero() {
           aventure en devenir
         </motion.h1>
 
-        {/* Animation pour le paragraphe */}
         <motion.p
           variants={itemVariants}
           initial="hidden"

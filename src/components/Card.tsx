@@ -6,8 +6,8 @@ import { useRef } from "react";
 export const GlareCard = ({
   children,
   className,
-  tags, // nouvelle prop : tableau de tags sous forme de chaînes
-  url,  // nouvelle prop pour l'URL
+  tags,
+  url,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -62,13 +62,11 @@ export const GlareCard = ({
   };
 
   return (
-    // On encapsule la carte ET les tags dans un conteneur unique afin qu'ils restent dans la même cellule de la grille
     <div className="flex flex-col">
       <div
         style={containerStyle}
         className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-[320px] [aspect-ratio:17/21] cursor-pointer"
         ref={refElement}
-        // Ajout de l'événement onClick pour ouvrir l'URL dans un nouvel onglet
         onClick={() => window.open(url, "_blank")}
         onPointerMove={(event) => {
           const rotateFactor = 0.4;
@@ -130,7 +128,6 @@ export const GlareCard = ({
           />
         </div>
       </div>
-      {/* Affichage des tags sous la carte */}
       {tags && tags.length > 0 && (
         <div className="flex flex-row justify-center items-center gap-4 w-full mt-4">
           {tags.map((tag, index) => (

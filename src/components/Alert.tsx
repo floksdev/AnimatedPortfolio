@@ -12,7 +12,6 @@ export default function AlertComponent({
 }) {
   const [visible, setVisible] = useState(true);
 
-  // Fermeture automatique après le délai
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);

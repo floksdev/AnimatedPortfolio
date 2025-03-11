@@ -13,13 +13,12 @@ export default function CountAnimation({
   className: string;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false }); // On veut que ça se déclenche à chaque fois
+  const isInView = useInView(ref, { once: false });
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
 
   useEffect(() => {
     if (isInView) {
-      // Remise à zéro du compteur pour relancer l'animation
       count.set(0);
       const animation = animate(count, number, { duration: 2 });
       return () => animation.stop();
