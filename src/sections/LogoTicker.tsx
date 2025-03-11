@@ -27,9 +27,6 @@ import { useRef, useEffect } from "react";
 export default function LogoTicker() {
     const ref = useRef(null);
     const isInView = useInView(ref);
-    useEffect(() => {
-        console.log("Element is in view: ", isInView)
-    }, [isInView])
     return (
     <section ref= {ref} className="py-24 overflow-x-clip">
         <div className="container">
