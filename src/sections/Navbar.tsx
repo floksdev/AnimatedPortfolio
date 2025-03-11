@@ -1,16 +1,16 @@
 "use client";
 
-import { section } from "framer-motion/client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
 import logoImage from '@/assets/images/logo.svg';
 import menuImage from '@/assets/images/menu.min.svg';
 import Button from "@/components/Button";
-import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
-    { label: "Accueil", href: "#" },
+    { label: "Accueil", href: "#hero" },
     { label: "Projets", href: "#projects" },
     { label: "Experiences", href: "#experiences" },
     { label: "CV", href: "#cv" },
@@ -22,14 +22,27 @@ function LinkedinRedirection() {
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const router = useRouter();
+    const homeRef = useRef(null); // Création d'une référence pour la section d'accueil
+
+    const handleNavClick = (e, href) => {
+        e.preventDefault();
+        setIsOpen(false);
+        router.push(href);
+    };
+
     return (
         <>
-            <section className="py-4 px-4 lg:py-8 lg:px-8 fixed w-full top-0 z-50">
+            {/* Attribue la ref à la section pour l'accueil */}
+            <section ref={homeRef} className="py-4 px-4 lg:py-8 lg:px-8 fixed w-full top-0 z-50">
                 <div className="container max-w-5xl">
                     <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop-blur">
                         <div className="grid grid-cols-2 border lg:grid-cols-3 rounded-full border-white/15 p-2 px-4 md:pr-2 items-center">
                             <div>
-                                <a href="#">
+                                <a 
+                                    href="#"
+                                    onClick={(e) => handleNavClick(e, "#")}  // Le logo déclenche le scroll vers le haut
+                                >
                                     <Image src={logoImage} alt="Layers logo" className="h-9 md:h-8 w-auto" />
                                 </a>
                             </div>
@@ -40,6 +53,7 @@ export default function Navbar() {
                                             href={link.href}
                                             key={link.label}
                                             className="transition-colors hover:text-violet-400 font-bold"
+                                            onClick={(e) => handleNavClick(e, link.href)}
                                         >
                                             {link.label}
                                         </a>
@@ -81,16 +95,19 @@ export default function Navbar() {
                                         className={twMerge("origin-left transition", isOpen && '-rotate-45 translate-y-1')}
                                     ></line>
                                 </svg>
-                                {/* Boutons visibles sur md et plus */}
                                 <Button className="hidden md:inline-flex items-center" variant="secondary" onClick={LinkedinRedirection}>
                                     Linkedin
                                 </Button>
-                                <Button className="hidden md:inline-flex items-center" variant="primary" href="#contact">
+                                <Button 
+                                    className="hidden md:inline-flex items-center" 
+                                    variant="primary" 
+                                    href="#contact"
+                                    onClick={(e) => handleNavClick(e, "#contact")}
+                                >
                                     Contact
                                 </Button>
                             </div>
                         </div>
-                        {/* Menu mobile incluant les liens et les boutons */}
                         <AnimatePresence>
                             {isOpen && (
                                 <motion.div
@@ -104,21 +121,29 @@ export default function Navbar() {
                                             href={link.href}
                                             key={link.label}
                                             className="transition-colors hover:text-violet-400 font-bold"
+                                            onClick={(e) => handleNavClick(e, link.href)}
                                         >
                                             {link.label}
                                         </a>
                                     ))}
                                     <div className="flex flex-col gap-2 w-full items-center">
-                                        <Button variant="secondary" onClick={LinkedinRedirection}>
+                                        <Button
+                                            variant="secondary"
+                                            onClick={() => {
+                                                LinkedinRedirection();
+                                                setIsOpen(false);
+                                            }}
+                                        >
                                             Linkedin
                                         </Button>
-                                        {/* Utilisation d'un <a> pour le bouton "Contact" en mobile */}
-                                        <a
+                                        <Button
+                                            className="inline-flex items-center"
+                                            variant="primary"
                                             href="#contact"
-                                            className="p-4 inline-flex items-center px-4 py-2 bg-violet-600 text-white rounded-full hover:bg-violet-700"
+                                            onClick={(e) => handleNavClick(e, "#contact")}
                                         >
                                             Contact
-                                        </a>
+                                        </Button>
                                     </div>
                                 </motion.div>
                             )}
