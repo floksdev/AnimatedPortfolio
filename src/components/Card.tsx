@@ -3,8 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { FaReact } from "react-icons/fa";
-import { PiEyesFill } from "react-icons/pi";
+import { FaBook } from "react-icons/fa";
 
 export const GlareCard = ({
   children,
@@ -186,7 +185,7 @@ export const GlareCard = ({
               className="bg-neutral-900 text-white p-6 rounded-lg shadow-lg max-w-sm mx-4"
             >
               <div className="flex items-center gap-2 mb-2">
-                <PiEyesFill size={24} className="text-violet-600" />
+                <FaBook size={24} className="text-violet-600" />
                 <h2 className="text-xl font-bold">Le saviez-vous ?</h2>
               </div>
               <p className="text-lg">
