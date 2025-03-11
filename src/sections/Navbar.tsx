@@ -32,9 +32,11 @@ export default function Navbar() {
             <div className="container max-w-5xl">
                 <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop-blur">
                     <div className="grid grid-cols-2 border lg:grid-cols-3 rounded-full border-white/15 p-2 px-4 md:pr-2 items-center">
-                <div>
-                    <Image src={logoImage} alt="Layers logo" className="h-9 md:h-8 w-auto"/>
-                </div>
+                    <div>
+                        <a href="#">
+                            <Image src={logoImage} alt="Layers logo" className="h-9 md:h-8 w-auto"/>
+                        </a>
+                    </div>
                 <div className="lg:flex justify-center items-center hidden">
                     <nav className="flex gap-6 pr-20 font-medium">
                         {navLinks.map(link => (
