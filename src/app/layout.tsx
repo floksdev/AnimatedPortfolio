@@ -10,8 +10,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Modern Design Tool Landing Page",
-  description: "Created with the help of Frontend Tribe",
+  title: "Tristan Wehrle",
+  description: "© Tristan Wehrle - Tous droits réservés",
+  icons: {
+    icon: "@/assets/images/favicon.ico",
+  },
 };
 
 function GridBackgroundDemo() {

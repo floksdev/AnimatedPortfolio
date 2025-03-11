@@ -7,10 +7,12 @@ export const GlareCard = ({
   children,
   className,
   tags, // nouvelle prop : tableau de tags sous forme de chaînes
+  url,  // nouvelle prop pour l'URL
 }: {
   children: React.ReactNode;
   className?: string;
   tags?: string[];
+  url: string;
 }) => {
   const isPointerInside = useRef(false);
   const refElement = useRef<HTMLDivElement>(null);
@@ -64,8 +66,10 @@ export const GlareCard = ({
     <div className="flex flex-col">
       <div
         style={containerStyle}
-        className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-[320px] [aspect-ratio:17/21]"
+        className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform w-[320px] [aspect-ratio:17/21] cursor-pointer"
         ref={refElement}
+        // Ajout de l'événement onClick pour ouvrir l'URL dans un nouvel onglet
+        onClick={() => window.open(url, "_blank")}
         onPointerMove={(event) => {
           const rotateFactor = 0.4;
           const rect = event.currentTarget.getBoundingClientRect();
