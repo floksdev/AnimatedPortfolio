@@ -8,15 +8,60 @@ import Button from "@/components/Button";
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
+
+  const [errors, setErrors] = useState<{
+    user_name?: string;
+    user_email?: string;
+    message?: string;
+  }>({});
 
   useEffect(() => {
     emailjs.init("M5jY8olEbPJDK1hd1");
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+
+      if (name === "user_name") {
+        if (value.trim() === "") {
+          newErrors.user_name = "Veuillez renseigner votre nom.";
+        } else {
+          delete newErrors.user_name;
+        }
+      }
+
+      if (name === "user_email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (value.trim() === "") {
+          newErrors.user_email = "Veuillez renseigner votre e-mail.";
+        } else if (!emailRegex.test(value.trim())) {
+          newErrors.user_email = "Veuillez saisir un e-mail valide.";
+        } else {
+          delete newErrors.user_email;
+        }
+      }
+
+      if (name === "message") {
+        if (value.trim() === "") {
+          newErrors.message = "Veuillez renseigner votre message.";
+        } else {
+          delete newErrors.message;
+        }
+      }
+
+      return newErrors;
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setSuccess("");
@@ -26,13 +71,46 @@ export default function Contact() {
       return;
     }
 
+    const form = formRef.current;
+    const nameValue = form.user_name.value.trim();
+    const emailValue = form.user_email.value.trim();
+    const messageValue = form.message.value.trim();
+
+    const newErrors: {
+      user_name?: string;
+      user_email?: string;
+      message?: string;
+    } = {};
+
+    if (!nameValue) {
+      newErrors.user_name = "Veuillez renseigner votre nom.";
+    }
+
+    if (!emailValue) {
+      newErrors.user_email = "Veuillez renseigner votre e-mail.";
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailValue)) {
+        newErrors.user_email = "Veuillez saisir un e-mail valide.";
+      }
+    }
+
+    if (!messageValue) {
+      newErrors.message = "Veuillez renseigner votre message.";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     emailjs
       .sendForm("service_kmiuplr", "template_8zwjvpv", formRef.current)
       .then(
         (result) => {
           console.log("SUCCESS!", result.text);
           setSuccess("Votre message a été envoyé avec succès !");
-          formRef.current?.reset();
+          formRef.current.reset();
         },
         (error) => {
           console.error("FAILED...", error.text);
@@ -51,6 +129,7 @@ export default function Contact() {
           <TitleComponent className="mt-6 text-6xl font-bold text-white w-full md:w-1/2 text-center">
             Hâte de vous <span className="text-violet-600">répondre</span>
           </TitleComponent>
+
           <form
             ref={formRef}
             onSubmit={handleSubmit}
@@ -65,10 +144,17 @@ export default function Contact() {
                 id="user_name"
                 name="user_name"
                 placeholder="Votre nom"
-                required
-                className="text-white h-12 rounded-lg px-4 bg-black border-2 border-violet-600 focus:outline-none focus:ring-2 focus:ring-violet-600"
+                onChange={handleChange}
+                className={`text-white h-12 rounded-lg px-4 bg-black border-2
+                  focus:outline-none focus:ring-2 focus:ring-violet-600
+                  ${errors.user_name ? "border-4 border-violet-600" : "border-violet-600"}
+                `}
               />
+              {errors.user_name && (
+                <p className="text-violet-500 mt-1">{errors.user_name}</p>
+              )}
             </div>
+
             <div className="flex flex-col">
               <label htmlFor="user_email" className="sr-only">
                 Votre e-mail
@@ -78,10 +164,17 @@ export default function Contact() {
                 id="user_email"
                 name="user_email"
                 placeholder="Votre e-mail"
-                required
-                className="text-white h-12 rounded-lg px-4 bg-black border-2 border-violet-600 focus:outline-none focus:ring-2 focus:ring-violet-600"
+                onChange={handleChange}
+                className={`text-white h-12 rounded-lg px-4 bg-black border-2
+                  focus:outline-none focus:ring-2 focus:ring-violet-600
+                  ${errors.user_email ? "border-4 border-violet-600" : "border-violet-600"}
+                `}
               />
+              {errors.user_email && (
+                <p className="text-violet-500 mt-1">{errors.user_email}</p>
+              )}
             </div>
+
             <div className="flex flex-col">
               <label htmlFor="message" className="sr-only">
                 Votre message
@@ -90,16 +183,18 @@ export default function Contact() {
                 id="message"
                 name="message"
                 placeholder="Votre message"
-                required
-                className="text-white rounded-lg px-4 py-2 bg-black border-2 border-violet-600 resize-none scrollbar-thin scrollbar-thumb-violet-600 scrollbar-track-transparent scrollbar-thumb-rounded focus:outline-none focus:ring-2 focus:ring-violet-600"
-              ></textarea>
+                onChange={handleChange}
+                className={`text-white rounded-lg px-4 py-2 bg-black border-2 resize-none h-32
+                  scrollbar-thin scrollbar-thumb-violet-600 scrollbar-track-transparent scrollbar-thumb-rounded
+                  focus:outline-none focus:ring-2 focus:ring-violet-600
+                  ${errors.message ? "border-4 border-violet-600" : "border-violet-600"}
+                `}
+              />
+              {errors.message && (
+                <p className="text-violet-500 mt-1">{errors.message}</p>
+              )}
             </div>
-            {/* <Alert
-                message="Votre message a bien été envoyé !"
-                description={success}
-                duration={5000}
-                onClose={() => setSuccess("")}
-            /> */}
+
             {error && (
               <Alert
                 message="Erreur"
@@ -116,6 +211,7 @@ export default function Contact() {
                 onClose={() => setSuccess("")}
               />
             )}
+
             <Button variant="primary" type="submit">
               Envoyer le message
             </Button>

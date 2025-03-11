@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="py-6 bg-neutral-950 border-t-4 border-violet-600">
       <div className="container mx-auto px-4 flex flex-col items-center space-y-4">
         <p className="text-center text-sm text-gray-400 font-extralight">
-            Portfolio créé avec passion grâce à Next.js, Tailwind CSS et Framer Motion
+            Portfolio réalisé avec passion avec Next.js, Tailwind CSS et Framer Motion
         </p>
         <motion.a
           href="https://fr.trustpilot.com/evaluate/tristan-wehrle.com"
