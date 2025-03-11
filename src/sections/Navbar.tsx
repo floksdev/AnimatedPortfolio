@@ -64,15 +64,15 @@ export default function Navbar() {
                 </div>
                     </div>
                     <AnimatePresence>
-                    {isOpen && (
-                    <motion.div initial={{height: 0}} animate={{height: 'auto'}} exit={{height: 0}} className="md:hidden flex flex-col items-center gap-4 py-4 overflow-hidden">
-                        {navLinks.map(link => (
-                            <a href={link.href} key={link.label} className="py-0 transition-colors hover:text-violet-400 font-bold">
-                                {link.label}
-                            </a>
-                        ))}
-                    </motion.div>
-                    )}
+                        {isOpen && (
+                        <motion.div initial={{height: 0}} animate={{height: 'auto'}} exit={{height: 0}} className="md:hidden flex flex-col items-center gap-4 py-4 overflow-hidden">
+                            {navLinks.map(link => (
+                                <a href={link.href} key={link.label} className="py-0 transition-colors hover:text-violet-400 font-bold">
+                                    {link.label}
+                                </a>
+                            ))}
+                        </motion.div>
+                        )}
                     </AnimatePresence>
                 </div>
             </div>

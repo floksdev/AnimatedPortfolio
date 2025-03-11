@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Tristan Wehrle",
   description: "© Tristan Wehrle - Tous droits réservés",
   icons: {
-    icon: "@/assets/images/favicon.ico",
+    icon: "/favicon.ico",
   },
 };
 

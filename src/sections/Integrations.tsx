@@ -26,8 +26,8 @@ export default function Integrations() {
             <div className="container">
                 <div className="flex justify-center items-center flex-col">
                     <Tag>Logiciels Maîtrisés</Tag>
-                    <h2 className="text-6xl font-bold mt-10">Je maîtrise également</h2>
-                    <h2 className="text-6xl font-bold mt-2">plusieurs <span className="text-violet-600">Logiciels</span></h2>
+                    <h2 className="text-6xl font-bold mt-10">Je maîtrise en plus</h2>
+                    <h2 className="text-6xl font-bold mt-2"><span className="text-violet-600">tous ces Logiciels</span></h2>
                     <div className="h-[700px] mt-16 overflow-hidden grid md:grid-cols-2 gap-4 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
                         <IntegrationColumn integrations={integrations}/>
                         <IntegrationColumn integrations={integrations.slice().reverse()} reverse className="hidden md:flex"/>
