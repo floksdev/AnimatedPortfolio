@@ -8,22 +8,6 @@ import Minishell from "@/assets/images/Minishell.svg";
 import RType from "@/assets/images/R-Type.svg";
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
 
-function EpitrelloRedirection() {
-  window.open("https://linkedin.com/in/tristan-wehrle", "_blank");
-}
-
-function MinishellRedirection() {
-  if (typeof window !== "undefined") {
-    window.open("https://linkedin.com/in/tristan-wehrle", "_blank");
-  }
-}
-
-function RtypeRedirection() {
-  if (typeof window !== "undefined") {
-    window.open("https://linkedin.com/in/tristan-wehrle", "_blank");
-  }
-}
-
 export default function Projects() {
   return (
     <section id="projects" className="py-48">
@@ -39,7 +23,7 @@ export default function Projects() {
             <GlareCard
               className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600"
               tags={["ReactJS", "NodeJS", "MongoDB"]}
-              url="to be implemented"
+              url="https://github.com/floksdev/EpiTrello"
             >
               <Image
                 className="h-2/5 w-full absolute inset-0 object-cover"
@@ -97,7 +81,7 @@ export default function Projects() {
             <GlareCard
               className="flex flex-col items-start justify-end py-8 px-6 bg-violet-600"
               tags={["C++", "SFML", "UDP"]}
-              url="to be implemented"
+              url="https://github.com/floksdev/R-Type"
             >
               <Image
                 className="h-2/5 w-full absolute inset-0 object-cover"
