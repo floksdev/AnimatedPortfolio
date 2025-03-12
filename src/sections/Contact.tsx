@@ -38,7 +38,7 @@ export default function Contact() {
       }
 
       if (name === "user_email") {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
         if (value.trim() === "") {
           newErrors.user_email = "Veuillez renseigner votre e-mail.";
         } else if (!emailRegex.test(value.trim())) {
@@ -64,12 +64,29 @@ export default function Contact() {
     e.preventDefault();
     setError("");
     setSuccess("");
-  
+
+    // Bloquer l'envoi si des erreurs de validation existent
+    if (Object.keys(errors).length > 0) {
+      setError("Veuillez corriger les erreurs avant d'envoyer le message.");
+      return;
+    }
+
     if (!formRef.current) {
       setError("Le formulaire n'est pas chargé.");
       return;
     }
-      
+
+    // Vérification supplémentaire au cas où un champ serait vide et que le handleChange ne l'aurait pas encore signalé
+    const formData = new FormData(formRef.current);
+    const userName = formData.get("user_name")?.toString().trim();
+    const userEmail = formData.get("user_email")?.toString().trim();
+    const message = formData.get("message")?.toString().trim();
+
+    if (!userName || !userEmail || !message) {
+      setError("Veuillez remplir tous les champs requis.");
+      return;
+    }
+
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
@@ -83,7 +100,7 @@ export default function Contact() {
           setSuccess("Votre message a été envoyé avec succès !");
           if (formRef.current) {
             formRef.current.reset();
-         }         
+          }
         },
         (error) => {
           console.error("FAILED...", error.text);
@@ -105,6 +122,7 @@ export default function Contact() {
 
           <form
             ref={formRef}
+            noValidate
             onSubmit={handleSubmit}
             className="w-full md:w-1/2 grid grid-cols-1 gap-6"
           >
