@@ -117,7 +117,6 @@ export default function Experiences() {
                 <h2 className="text-xl font-bold">Projet confidentiel</h2>
               </div>
               <p className="text-lg">
-    const form = formRef.current;
                 Ce projet est actuellement top secret et ne peut pas être révélé pour l&apos;instant.
               </p>
               <button
