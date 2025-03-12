@@ -158,14 +158,16 @@ export default function Navbar() {
                                             <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4 mr-2" />
                                             Linkedin
                                         </Button>
-                                        <Button
-                                            className="inline-flex items-center"
-                                            variant="primary"
-                                            href="#contact"
-                                            onClick={(e) => handleNavClick(e, "#contact")}
-                                        >
-                                            Contact
-                                        </Button>
+                                        <a
+                                        href="#contact"
+                                        onClick={(e) => handleNavClick(e, "#contact")}>
+                                            <Button
+                                                className="inline-flex items-center"
+                                                variant="primary"
+                                            >
+                                                Contact
+                                            </Button>
+                                        </a>
                                     </div>
                                 </motion.div>
                             )}
