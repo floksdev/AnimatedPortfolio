@@ -9,7 +9,7 @@ import {
   faFolderOpen, 
   faUserGraduate, 
   faFileLines 
-} from '@fortawesome/free-regular-svg-icons';
+} from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import logoImage from '@/assets/images/logo.svg';
 import Button from "@/components/Button";
