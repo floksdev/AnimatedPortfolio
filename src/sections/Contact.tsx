@@ -69,12 +69,7 @@ export default function Contact() {
       setError("Le formulaire n'est pas chargé.");
       return;
     }
-  
-    const form = formRef.current;
-    const nameValue = form.user_name.value.trim();
-    const emailValue = form.user_email.value.trim();
-    const messageValue = form.message.value.trim();
-    
+      
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
@@ -86,7 +81,9 @@ export default function Contact() {
         (result) => {
           console.log("SUCCESS!", result.text);
           setSuccess("Votre message a été envoyé avec succès !");
-          formRef.current.reset();
+          if (formRef.current) {
+            formRef.current.reset();
+         }         
         },
         (error) => {
           console.error("FAILED...", error.text);

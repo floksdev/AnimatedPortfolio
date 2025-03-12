@@ -21,7 +21,7 @@ export default function Footer() {
           whileTap={{ scale: 0.95 }}
         >
           <FaStar className="text-xl" />
-          Votre avis m'intéresse
+          Votre avis m&apos;intéresse
         </motion.a>
         <p className="text-sm text-gray-400">
           © Tristan Wehrle {currentYear} - Tous droits réservés

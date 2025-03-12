@@ -12,7 +12,7 @@ function addVariablesForColors({ addBase, theme }: any) {
 
   addBase({
     ":root": newVars,
-    "html": {
+    html: {
       scrollBehavior: "smooth",
     },
   });

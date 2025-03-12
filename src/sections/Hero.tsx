@@ -1,6 +1,5 @@
 "use client";
 
-import Button from "@/components/Button";
 import Pic from "@/assets/images/me.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";

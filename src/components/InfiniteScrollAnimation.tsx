@@ -1,6 +1,6 @@
 import React from 'react';
 import {motion} from 'framer-motion';
-import Image from 'next/image';
+import Image, { StaticImageData } from "next/image";
 import ExpressJS from "@/assets/images/techno/ExpressJS.svg";
 import ReactJS from "@/assets/images/techno/ReactJS.svg";
 import NextJS from "@/assets/images/techno/NextJS.svg";
@@ -20,7 +20,7 @@ import Cpp from "@/assets/images/techno/C++.svg";
 import C from "@/assets/images/techno/C.svg";
 import FramerMotion from "@/assets/images/techno/FramerMotion.svg";
 
-const CompanyLogoData: Array<{ src: any; alt: string }> = [
+const CompanyLogoData: Array<{ src: StaticImageData; alt: string }> = [
   { src: ExpressJS, alt: 'Express Logo' },
   { src: ReactJS, alt: 'React Logo' },
   { src: NextJS, alt: 'Next Logo' },

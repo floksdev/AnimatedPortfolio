@@ -40,7 +40,7 @@ export default function Projects() {
                 </div>
                 <p className="font-normal text-base text-neutral-200 mt-4">
                   Une application web de gestion de tâches inspirée de Trello.
-                  Conception d'une API REST, gestion des utilisateurs et
+                  Conception d&apos;une API REST, gestion des utilisateurs et
                   implémentation du drag-and-drop pour organiser les tâches.
                 </p>
                 <div className="absolute right-6 bottom-6">
@@ -97,8 +97,8 @@ export default function Projects() {
                   </p>
                 </div>
                 <p className="font-normal text-base text-neutral-200 mt-4">
-                  Développement d'un jeu multijoueur inspiré du classique R-Type.
-                  Implémentation d’un moteur réseau en C++ avec UDP pour la
+                  Développement d&apos;un jeu multijoueur inspiré du classique R-Type.
+                  Implémentation d&apos;un moteur réseau en C++ avec UDP pour la
                   communication entre clients et serveur.
                 </p>
                 <div className="absolute right-6 bottom-6">

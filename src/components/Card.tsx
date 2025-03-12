@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBook } from "react-icons/fa";
 
@@ -24,7 +24,7 @@ export const GlareCard = ({
     background: { x: 50, y: 50 },
     rotate: { x: 0, y: 0 },
   });
-  const containerStyle = {
+  const containerStyle: React.CSSProperties & { [key: string]: string } = {
     "--m-x": "50%",
     "--m-y": "50%",
     "--r-x": "0deg",
@@ -37,7 +37,7 @@ export const GlareCard = ({
     "--radius": "48px",
     "--easing": "ease",
     "--transition": "var(--duration) var(--easing)",
-  } as any;
+  };  
 
   const backgroundStyle = {
     "--step": "5%",

@@ -32,7 +32,10 @@ export default function Navbar() {
     const router = useRouter();
     const homeRef = useRef(null);
 
-    const handleNavClick = (e, href) => {
+    const handleNavClick = (
+        e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+        href: string
+    ) => {
         e.preventDefault();
         setIsOpen(false);
         router.push(href);
@@ -118,7 +121,7 @@ export default function Navbar() {
                                     className="hidden md:inline-flex items-center" 
                                     variant="primary" 
                                     href="#contact"
-                                    onClick={(e) => {
+                                    onClick={() => {
                                         setIsOpen(false);
                                     }}
                                 >

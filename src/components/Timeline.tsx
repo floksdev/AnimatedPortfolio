@@ -3,6 +3,7 @@ import {
   useScroll,
   useTransform,
   motion,
+  MotionValue,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -17,7 +18,7 @@ const AnimatedPoint = ({
   children,
 }: {
   containerRef: React.RefObject<HTMLDivElement>;
-  heightTransform: any;
+  heightTransform: MotionValue<number>;
   children?: React.ReactNode;
 }) => {
   const pointRef = useRef<HTMLDivElement>(null);
@@ -61,7 +62,7 @@ const AnimatedItem = ({
   children,
 }: {
   containerRef: React.RefObject<HTMLDivElement>;
-  heightTransform: any;
+  heightTransform: MotionValue<number>;
   children: React.ReactNode;
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);

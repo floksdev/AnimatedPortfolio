@@ -3,13 +3,19 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
+interface AlertProps {
+  message: string;
+  description?: string;
+  duration?: number;
+  onClose?: () => void;
+}
 
 export default function AlertComponent({ 
   message, 
   description, 
   duration = 3000, 
   onClose = () => {} 
-}) {
+}: AlertProps) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {

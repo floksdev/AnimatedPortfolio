@@ -1,6 +1,6 @@
 "use client";
 
-import Integrations, { type IntegrationType } from "@/sections/Integrations"
+import { type IntegrationType } from "@/sections/Integrations"
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";

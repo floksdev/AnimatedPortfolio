@@ -1,12 +1,10 @@
 import Tag from "@/components/Tag";
-import Image from "next/image";
 import figmaIcon from "@/assets/images/figma-logo.svg";
 import notionIcon from "@/assets/images/notion-logo.svg";
 import slackIcon from "@/assets/images/slack-logo.svg";
 import photoshopIcon from "@/assets/images/Photoshop.svg";
 import cinema4DIcon from "@/assets/images/Cinema4D.svg";
 import githubIcon from "@/assets/images/github-logo.svg";
-import blenderIcon from "@/assets/images/Blender.svg";
 import IntegrationColumn from "@/components/IntegrationsColumn";
 
 const integrations = [
