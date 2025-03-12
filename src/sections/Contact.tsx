@@ -11,7 +11,6 @@ export default function Contact() {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
   const [errors, setErrors] = useState<{
     user_name?: string;
     user_email?: string;
@@ -19,7 +18,7 @@ export default function Contact() {
   }>({});
 
   useEffect(() => {
-    emailjs.init("M5jY8olEbPJDK1hd1");
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
   }, []);
 
   const handleChange = (
@@ -65,47 +64,24 @@ export default function Contact() {
     e.preventDefault();
     setError("");
     setSuccess("");
-
+  
     if (!formRef.current) {
       setError("Le formulaire n'est pas chargé.");
       return;
     }
-
+  
     const form = formRef.current;
     const nameValue = form.user_name.value.trim();
     const emailValue = form.user_email.value.trim();
     const messageValue = form.message.value.trim();
-
-    const newErrors: {
-      user_name?: string;
-      user_email?: string;
-      message?: string;
-    } = {};
-
-    if (!nameValue) {
-      newErrors.user_name = "Veuillez renseigner votre nom.";
-    }
-
-    if (!emailValue) {
-      newErrors.user_email = "Veuillez renseigner votre e-mail.";
-    } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailValue)) {
-        newErrors.user_email = "Veuillez saisir un e-mail valide.";
-      }
-    }
-
-    if (!messageValue) {
-      newErrors.message = "Veuillez renseigner votre message.";
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
+    
     emailjs
-      .sendForm("service_kmiuplr", "template_8zwjvpv", formRef.current)
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      )
       .then(
         (result) => {
           console.log("SUCCESS!", result.text);
@@ -205,7 +181,7 @@ export default function Contact() {
             )}
             {success && (
               <Alert
-                message="Votre message a bien été envoyé !"
+                message="Merci !"
                 description={success}
                 duration={5000}
                 onClose={() => setSuccess("")}

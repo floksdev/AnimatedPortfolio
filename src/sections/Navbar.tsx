@@ -46,8 +46,8 @@ export default function Navbar() {
                         <div className="grid grid-cols-2 md:grid-cols-3 rounded-full border-white/15 p-2 px-4 md:pr-2 items-center">
                             <div>
                                 <a 
-                                    href="#"
-                                    onClick={(e) => handleNavClick(e, "#")}
+                                    href="#hero"
+                                    onClick={(e) => handleNavClick(e, "#hero")}
                                 >
                                     <Image src={logoImage} alt="Layers logo" className="h-9 md:h-8 w-auto" />
                                 </a>
