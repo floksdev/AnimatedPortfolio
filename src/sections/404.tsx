@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Button from "@/components/Button";
 import Image from "next/image";
-import illustration from "@/public/404-illustration.svg"; // Importez une illustration
+import illustration from "@/public/404-illustration.svg";
 
 export default function Custom404() {
   return (

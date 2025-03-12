@@ -160,7 +160,7 @@ export default function Navbar() {
                                         </Button>
                                         <a
                                         href="#contact"
-                                        onClick={(e) => handleNavClick(e, "#contact")}>
+                                                onClick={(e) => handleNavClick(e, "#contact")}>
                                             <Button
                                                 className="inline-flex items-center"
                                                 variant="primary"
